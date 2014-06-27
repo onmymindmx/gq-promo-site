@@ -1,0 +1,16 @@
+{
+  "name": "gq-promo-site",
+  "description": "Promo site",
+  "version": "0.0.1",
+  "homepage": "https://github.com/onmymindmx/gq-promo-site",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "html5-boilerplate": "~4.3.0",
+    "bootstrap": "latest"
+  }
+}
