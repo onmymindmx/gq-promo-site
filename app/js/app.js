@@ -10,6 +10,6 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {templateUrl: 'views/promo.html'});
+  $routeProvider.when('/', {templateUrl: 'views/landing.html'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
