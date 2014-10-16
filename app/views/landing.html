@@ -8,65 +8,90 @@
 		<div class="container promo">
 			<h1>¿No sabes a dónde ir en Quintana Roo?</h1>
 			<h2>Pronto te recomendaremos los mejores lugares.</h2>
-			<button type="button" class="btn btn-primary btn-lg">Mantenme informado</button>
+			<a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#myModal">Mantenme informado</a>
 		</div>
 		<div class="author">
-		  <p>Foto por: <a ng-href="{{pic.link}}">{{pic.user.full_name}}</a></p>
+		  <p>Foto por: <a ng-href="{{pic.link}}" target="_blank">{{pic.user.full_name}}</a></p>
 		</div>
 	</div>
 	  
-	
 	<div class="landing">
-		<div class="container feature">
-			<div class="row">
-				<div class="col-md-6 col-md-push-6">
-					<span class="picture">
-						<img src="img/beach-party.jpg" alt="" class="img-circle img-responsive">	
-					</span>
-					
-				</div>
-				<div class="col-md-6 col-md-pull-6">
-					<h2>Encuentra el lugar perfecto para divertirte</h2>
-					<p>¿Es fin de semana, estás aburrido y no sabes a donde ir? Nosotros te recomendaremos los mejores lugar que tiene Quintana Roo, además de saber qué dicen las otras personas de esos lugares y toda la información que necesites para pasar un excelente rato.</p>
-					<button type="button" class="btn btn-lg btn-call">
-						Explora lugares
-					</button>
-				</div>
+		<div class="container">
+			<div class="col-xs-12 col-sm-4">
+				<span class="picture">
+					<img src="img/beach-party.jpg" alt="" class="img-circle img-responsive">	
+				</span>
+				<h2>Encuentra el lugar perfecto para divertirte</h2>
+				<p>¿Es fin de semana, estás aburrido y no sabes a donde ir? Nosotros te recomendaremos los mejores lugar que tiene Quintana Roo, además de saber qué dicen las otras personas de esos lugares y toda la información que necesites para pasar un excelente rato.</p>
+				<button type="button" class="btn btn-lg btn-call">
+					Explora lugares
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<span class="picture">
+					<img src="img/club-403.jpg" alt="" class="img-circle img-responsive">	
+				</span>
+				<h2>Ideal para empresas</h2>
+				<p>¿Tienes un negocio y quieres promocionarlo a través de internet pero no sabes cómo hacerlo? Nosotros te asesoramos y publicamos tu negocio en el sitio.</p>
+				<button type="button" class="btn btn-lg btn-call">
+					Registra tu negocio
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<img src="img/lindy-b.jpg" alt="" class="img-circle img-responsive">
+				<h2>Promociona tu evento</h2>
+				<p>¿Quieres que tu evento llegue a más personas además de las que tienes en tu redes sociales? Nosotros te publicamos tu evento para que miles de personas dentro del Estado lo encuentren y asistan.</p>
+				<button type="button" class="btn btn-lg btn-call">
+					Registra tu evento
+				</button>
 			</div>
 		</div>
-
-		<div class="container feature">
-			<div class="row">
-				<div class="col-md-6" >
-					<span class="picture">
-						<img src="img/club-403.jpg" alt="" class="img-circle img-responsive">	
-					</span>
-					
-				</div>
-				<div class="col-md-6">
-					<h2>Ideal para empresas</h2>
-					<p>¿Tienes un negocio y quieres promocionarlo a través de internet pero no sabes cómo hacerlo? Nosotros te asesoramos y publicamos tu negocio en el sitio.</p>
-					<button type="button" class="btn btn-lg btn-call">
-						Registra tu negocio
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="container feature">
-			<div class="row">
-				<div class="col-md-6 col-md-push-6">
-					<img src="img/lindy-b.jpg" alt="" class="img-circle img-responsive">
-				</div>
-				<div class="col-md-6 col-md-pull-6">
-					<h2>Promociona tu evento</h2>
-					<p>¿Quieres que tu evento llegue a más personas además de las que tienes en tu redes sociales? Nosotros te publicamos tu evento para que miles de personas dentro del Estado lo encuentren y asistan.</p>
-					<button type="button" class="btn btn-lg btn-call">
-						Registra tu evento
-					</button>
-				</div>
-			</div>
-		</div>
+		<hr>
 	</div>	
 </div>
+<!-- modal de registro -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        		<h4 class="modal-title" id="myModalLabel">Suscribite para que te notifiquemos cuando lanzemos la aplicación</h4>
+      		</div>
+      		<form name="formSuscription" ng-controller="MailchimpSubscriptionCtrl" ng-class="{success: mailchimp.result === 'success'}">
+      			<div class="modal-body">
+	        		<div ng-hide="mailchimp.result === 'success'" class="form-container">
+	        			<!-- Datos de mailchimp -->
+	        			<input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='twitter'">
+	        			<input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us8'">
+	        			<input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='d018b7cafcdf454367c9755cf'">
+	        			<input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='1e8173e398'">
 
+	        			<!-- Datos de contacto -->
+	        			<input type="text" class="form-control" name="firstName" ng-model="mailchimp.firstName" placeholder="Escribe tu nombre" required>
+	        			<input type="text" class="form-control" name="lastName" ng-model="mailchimp.lastName" placeholder="Escribe tu apellido" required>
+	        			<input type="email" class="form-control" name="email" ng-model="mailchimp.email" placeholder="Escribe tu email" required>
+	        			
+	        			<!-- Muestra un error si MailChimp no pude inscribir el correo a la lista -->
+	        			<div ng-show="mailchimp.result === 'error'" ng-cloak>
+	        				<p ng-bind-html="mailchimp.errorMessage" class="error"></p>
+	        			</div>
+	        		</div>
+	        		<!-- Mostramos mensaje de éxito cuando se registre -->
+	        		<div ng-show="mailchimp.result === 'success'" class="result-message" ng-cloak>
+	        		  <h2>{{mailchimp.successMessage}}</h2>
+	        		</div>
+    	  		</div>
+	      		<div class="modal-footer">
+	      			<!-- Ocultamos el botón para inscribirse si la respuesta es exitosa -->
+	      			<div ng-hide="mailchimp.result === 'success'">
+	      				<input type="submit" class="btn btn-primary btn-lg" ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)" value="Suscribirse">	
+	      			</div>
+	      			<!-- Mostramos el botón para cerrar la forma cuando se haya inscrito la persona -->
+	      			<div ng-show="mailchimp.result === 'success'">
+	      				<button type="button" class="btn btn-default" data-dismiss="modal">Entendido, revisaré mi correo.</button>
+	      			</div>
+      			</div>
+      		</form>
+    	</div>
+  	</div>
+</div>
