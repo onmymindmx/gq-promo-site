@@ -9,7 +9,7 @@ angular.module('myApp.services', []).
   factory('instagram', ['$http', function($http){
   	return {
   		fetchHashTag: function(callback){
-  			var endPoint = 'https://api.instagram.com/v1/tags/quintanaroo/media/recent?client_id=642176ece1e7445e99244cec26f4de1f&callback=JSON_CALLBACK';
+  			var endPoint = 'https://api.instagram.com/v1/tags/quintanaroo/media/recent?client_id=37943a0600174910ae37137b80c35f6b&callback=JSON_CALLBACK';
 
   			$http.jsonp(endPoint).success(function(response){
   				callback(response.data);
