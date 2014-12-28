@@ -14,5 +14,6 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'views/landing.html'});
+  $routeProvider.when('/descubre', {templateUrl: 'views/descubre.html'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
